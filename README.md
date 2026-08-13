@@ -1,4 +1,4 @@
-# Box Recommendation Service
+Box Recommendation 
 
 A small Django + SQLite app that, given an order, recommends the cheapest
 shipping box that fits it — or splits the order across multiple boxes if
@@ -80,7 +80,7 @@ Aditi_2004
 python manage.py runserver
 ```
 
-## Running tests (no MySQL needed)
+## Running tests (no SQLite needed)
 
 `config/settings.py` swaps in an in-memory SQLite database whenever
 `DJANGO_TEST_MODE=1` is set, so the test suite runs standalone:
