@@ -1,6 +1,6 @@
 # Box Recommendation Service
 
-A small Django + MySQL app that, given an order, recommends the cheapest
+A small Django + SQLite app that, given an order, recommends the cheapest
 shipping box that fits it — or splits the order across multiple boxes if
 nothing fits it whole.
 
