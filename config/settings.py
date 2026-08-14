@@ -49,26 +49,34 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "config.wsgi.application"
 
-if os.environ.get("DJANGO_TEST_MODE") == "1":
-    # Self-contained, no external DB needed — used by `manage.py test`.
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": ":memory:",
-        }
+
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
-else:
-    DATABASES = {
-            "default": {
-                "ENGINE": "django.db.backends.mysql",
-                "NAME": os.environ.get("MYSQL_DATABASE", "box_recommender"),
-                "USER": os.environ.get("MYSQL_USER", "root"),
-                "PASSWORD": os.environ.get("MYSQL_PASSWORD", ""),
-                "HOST": os.environ.get("MYSQL_HOST", "127.0.0.1"),
-                "PORT": os.environ.get("MYSQL_PORT", "3306"),
-                "OPTIONS": {"charset": "utf8mb4"},
-            }
-    }
+}
+
+# if os.environ.get("DJANGO_TEST_MODE") == "1":
+#     # Self-contained, no external DB needed — used by `manage.py test`.
+#     DATABASES = {
+#         "default": {
+#             "ENGINE": "django.db.backends.sqlite3",
+#             "NAME": BASE_DIR / "db.sqlite3",
+#         }
+#     }
+# else:
+#     DATABASES = {
+#             "default": {
+#                 "ENGINE": "django.db.backends.mysql",
+#                 "NAME": os.environ.get("MYSQL_DATABASE", "box_recommender"),
+#                 "USER": os.environ.get("MYSQL_USER", "root"),
+#                 "PASSWORD": os.environ.get("MYSQL_PASSWORD", ""),
+#                 "HOST": os.environ.get("MYSQL_HOST", "127.0.0.1"),
+#                 "PORT": os.environ.get("MYSQL_PORT", "3306"),
+#                 "OPTIONS": {"charset": "utf8mb4"},
+#             }
+#     }
 
 AUTH_PASSWORD_VALIDATORS = []
 
